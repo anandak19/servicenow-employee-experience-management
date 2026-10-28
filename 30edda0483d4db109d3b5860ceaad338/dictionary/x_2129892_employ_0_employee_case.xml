@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="dc9fdac483d4db109d3b5860ceaad3a4" label="Employee Case" max_length="40" name="x_2129892_employ_0_employee_case" type="collection">
+        <element default="javascript:gs.getUserID()" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="Opened By" max_length="32" name="opened_by" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element label="Assignment Group" max_length="32" name="assignment_group" reference="sys_user_group" type="reference"/>
+        <element label="Assigned To" max_length="32" name="assigned_to" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element label="Requested For" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element label="Description" max_length="40" name="description" type="string"/>
+        <element choice="1" label="Contact Preference" max_length="40" name="contact_preference" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Mobile" sequence="2" value="mobile"/>
+                <element inactive_on_update="false" label="Email" sequence="0" value="email"/>
+                <element inactive_on_update="false" label="Portal" sequence="1" value="portal"/>
+            </choice>
+        </element>
+        <element default="javascript:gs.getUser().getEmail()" label="Email" max_length="40" name="email" type="string"/>
+        <element choice="3" default="new" label="Status" max_length="255" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Approved" sequence="2" value="approved"/>
+                <element inactive_on_update="false" label="Closed" sequence="4" value="closed"/>
+                <element inactive_on_update="false" label="Rejected" sequence="3" value="rejected"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+            </choice>
+        </element>
+        <element label="Short Description" max_length="40" name="short_description" type="string"/>
+        <element choice="1" label="Category" max_length="40" name="category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Access" sequence="3" value="access"/>
+                <element inactive_on_update="false" label="IT" sequence="1" value="it"/>
+                <element inactive_on_update="false" label="HR" sequence="0" value="hr"/>
+                <element inactive_on_update="false" label="Payroll" sequence="2" value="payroll"/>
+            </choice>
+        </element>
+        <element label="Manager" max_length="32" name="manager" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="assignment_group"/>
+        </index>
+        <index name="index3">
+            <element name="manager"/>
+        </index>
+        <index name="index4">
+            <element name="opened_by"/>
+        </index>
+        <index name="index5">
+            <element name="requested_for"/>
+        </index>
+    </element>
+</database>
